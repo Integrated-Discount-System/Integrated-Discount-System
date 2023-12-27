@@ -1,8 +1,8 @@
 package main.java.view.input;
 
 import main.java.exception.CustomException;
+import main.java.model.Function;
 import main.java.utils.Console;
-import main.java.validation.Function;
 import main.java.validation.FunctionValidator;
 
 public class FunctionRequestView {
