@@ -1,16 +1,16 @@
 package main.java;
 
 import main.java.config.Configuration;
-import main.java.controller.LoginController;
-import main.java.controller.SignUpController;
+import main.java.controller.MainController;
+import main.java.validation.FunctionValidator;
+import main.java.view.input.FunctionRequestView;
 
 public class Main {
     public static void main(String[] args) {
         Configuration config = new Configuration();
-        SignUpController signUpController = config.getSignUpController();
+        MainController mainController = config.getMainController();
 
-//        signUpController.signUp();
-        LoginController loginController = config.getLoginController();
-        loginController.login();
+        FunctionRequestView functionRequestView = new FunctionRequestView(new FunctionValidator());
+        mainController.run(functionRequestView);
     }
 }
