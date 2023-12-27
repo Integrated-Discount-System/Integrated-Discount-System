@@ -1,40 +1,20 @@
 package main.java.config;
 
-import main.java.controller.LoginController;
-import main.java.controller.SignUpController;
-import main.java.service.LoginService;
-import main.java.service.SignUpService;
-import main.java.validation.LoginValidator;
-import main.java.validation.SignUpValidator;
-import main.java.view.LoginRequestView;
-import main.java.view.LoginResponseView;
-import main.java.view.SignUpRequestView;
-import main.java.view.SignUpResponseView;
+import main.java.controller.MainController;
+import main.java.service.CalculateService;
+import main.java.service.MemberService;
 
 public class Configuration {
-    SignUpRequestView signUpRequestView = createSignUpRequestView();
-    SignUpResponseView signUpResponseView = new SignUpResponseView();
-    SignUpService signUpService = new SignUpService(signUpRequestView, signUpResponseView);
+    MainController mainController = createMainController();
 
-    LoginRequestView loginRequestView = createLoginRequestView();
-    LoginResponseView loginResponseView = new LoginResponseView();
-    LoginService loginService = new LoginService(loginRequestView, loginResponseView);
-
-    private SignUpRequestView createSignUpRequestView() {
-        SignUpValidator signUpValidator = new SignUpValidator();
-        return new SignUpRequestView(signUpValidator);
+    private MainController createMainController() {
+        CalculateService calculateService = new CalculateService();
+        MemberService memberService = new MemberService();
+        return new MainController(calculateService, memberService);
     }
 
-    private LoginRequestView createLoginRequestView() {
-        LoginValidator loginValidator = new LoginValidator();
-        return new LoginRequestView(loginValidator);
-    }
 
-    public SignUpController getSignUpController() {
-        return new SignUpController(signUpService);
-    }
-
-    public LoginController getLoginController() {
-        return new LoginController(loginService);
+    public MainController getMainController() {
+        return mainController;
     }
 }
