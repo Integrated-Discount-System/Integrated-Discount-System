@@ -1,30 +1,41 @@
 package main.java.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DiscountPrice {
-    private List<Integer> discountPrices;
+    private Map<Member, Integer> discountPrices; // 예상 결제 금액
+    private Map<DiscountInfo, Integer> discountFee; // 할인 금액
 
-    private DiscountPrice() {
-        this.discountPrices = new ArrayList<>();
+    public DiscountPrice() {
+        this.discountPrices = new HashMap<>();
+        this.discountFee = new HashMap<>();
     }
 
-    public static DiscountPrice createDiscountPrice() {
-        return new DiscountPrice();
+    public Map<Member, Integer> getDiscountPrices() {
+        return Collections.unmodifiableMap(discountPrices);
     }
 
-    public List<Integer> getDiscountPrices() {
-        return Collections.unmodifiableList(discountPrices);
+    public Map<DiscountInfo, Integer> getDiscountFee() {
+        return Collections.unmodifiableMap(discountFee);
     }
 
-    public List<Integer> calculateDiscountPrice(List<Member> members) {
+    public Map<Member, Integer> calculateDiscountPrice(List<Member> members) {
         for (Member member : members) {
-            Double maxDiscountPercent = DiscountInfo.getMaxDiscountPercent(member.getDiscounts());
-            int discountPrice = (int) (member.getFee() - maxDiscountPercent * member.getFee());
-            discountPrices.add(discountPrice);
+            DiscountInfo maxDiscountPercent = DiscountInfo.getMaxDiscountPercent(member.getDiscounts());
+            int discountPrice = (int) (member.getFee() - maxDiscountPercent.getDiscountPercent() * member.getFee());
+            discountPrices.put(member, discountPrice);
         }
         return discountPrices;
+    }
+
+    public Map<DiscountInfo, Integer> getDiscountFee(List<Member> members) {
+        for (Member member : members) {
+            DiscountInfo maxDiscountPercent = DiscountInfo.getMaxDiscountPercent(member.getDiscounts());
+            discountFee.put(maxDiscountPercent, (int) (maxDiscountPercent.getDiscountPercent() * member.getFee()));
+        }
+        return discountFee;
     }
 }

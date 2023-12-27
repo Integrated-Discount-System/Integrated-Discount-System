@@ -50,12 +50,11 @@ public enum DiscountInfo {
                 .orElse(NoMatch);
     }
 
-    public static Double getMaxDiscountPercent(Map<DiscountInfo, String> discounts) {
+    public static DiscountInfo getMaxDiscountPercent(Map<DiscountInfo, String> discounts) {
         return discounts.entrySet().stream()
                 .filter(entry -> entry.getValue().equals("o"))
                 .map(Entry::getKey)
                 .max(Comparator.comparingDouble(DiscountInfo::getDiscountPercent))
-                .orElse(NoMatch)
-                .getDiscountPercent();
+                .orElse(NoMatch);
     }
 }

@@ -10,7 +10,7 @@ public class Member {
     private String membership;
     private LocalDate createPayDate;
 
-    private Member(java.lang.String name, int fee, Map<DiscountInfo, java.lang.String> discounts, String membership,
+    private Member(String name, int fee, Map<DiscountInfo, String> discounts, String membership,
                    LocalDate createPayDate) {
         this.name = name;
         this.fee = fee;

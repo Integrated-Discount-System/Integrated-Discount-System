@@ -3,9 +3,8 @@ package main.java.controller;
 import static main.java.view.output.DiscountCalculateView.printCalculateResult;
 import static main.java.view.output.DiscountListView.printDiscountInfo;
 
-import java.util.List;
+import main.java.dto.MembersDto;
 import main.java.model.Function;
-import main.java.model.Member;
 import main.java.service.CalculateService;
 import main.java.service.MemberService;
 import main.java.view.input.FunctionRequestView;
@@ -21,7 +20,7 @@ public class MainController {
     }
 
     public void run(FunctionRequestView functionRequestView) {
-        List<Member> members = memberService.readMembers();
+        MembersDto membersDto = memberService.readMembers();
 
         while (true) {
             MainView.explainFunction();
@@ -33,7 +32,7 @@ public class MainController {
                 printDiscountInfo();
             }
             if (func.equals(Function.THREE.getFunction())) {
-                printCalculateResult(members, calculateService.calculate());
+                printCalculateResult(membersDto, calculateService.calculate());
             }
             if (func.equals(Function.FOUR.getFunction())) {
 
