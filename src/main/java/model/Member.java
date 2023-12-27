@@ -1,29 +1,27 @@
 package main.java.model;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 public class Member {
     private String name;
-    private String loginId;
-    private String password;
-    private int age;
+    private int fee;
     Map<DiscountInfo, String> discounts;
-    private MemberShip membership;
+    private String membership;
+    private LocalDate createPayDate;
 
-    public Member(String name, String loginId, String password, int age, Map<DiscountInfo, String> discounts,
-                  MemberShip membership) {
+    private Member(java.lang.String name, int fee, Map<DiscountInfo, java.lang.String> discounts, String membership,
+                   LocalDate createPayDate) {
         this.name = name;
-        this.loginId = loginId;
-        this.password = password;
-        this.age = age;
+        this.fee = fee;
         this.discounts = discounts;
         this.membership = membership;
+        this.createPayDate = createPayDate;
     }
 
-    public static Member createMember(String name, String loginId, String password, int age,
-                                      Map<DiscountInfo, String> discounts,
-                                      MemberShip membership) {
-        return new Member(name, loginId, password, age, discounts, membership);
+    public static Member createMember(String name, int age, Map<DiscountInfo, String> discounts,
+                                      String membership, LocalDate createPayDate) {
+        return new Member(name, age, discounts, membership, createPayDate);
     }
 
 
@@ -31,27 +29,16 @@ public class Member {
         return name;
     }
 
-    public String getLoginId() {
-        return loginId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public int getAge() {
-        return age;
+    public int getFee() {
+        return fee;
     }
 
     public Map<DiscountInfo, String> getDiscounts() {
         return discounts;
     }
 
-    public MemberShip getMembership() {
+    public String getMembership() {
         return membership;
     }
 
-    public boolean validateDuplicateLoginId() {
-        return false;
-    }
 }
