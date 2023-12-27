@@ -1,6 +1,6 @@
 package main.java.view.output;
 
-import main.java.validation.Function;
+import main.java.model.Function;
 
 public class MainView {
     private static final String NOTICE = "안녕하세요. Integrated Discount System 입니다. 기능을 선택해주세요.";
