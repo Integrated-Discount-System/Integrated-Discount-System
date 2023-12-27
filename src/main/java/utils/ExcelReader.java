@@ -20,7 +20,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelReader {
-    private static final String filePath = "/Users/jaehyun/Documents/IdeaProjects/KaKaoCloud/IntegratedDiscountSystem/src/main/resources/static/IntegratedDiscountSystem.xlsx";
+    private static final String filePath = "./src/main/resources/static/IntegratedDiscountSystem.xlsx";
 
     public static List<Member> readExcel() {
         File file = new File(filePath);
