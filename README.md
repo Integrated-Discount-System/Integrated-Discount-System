@@ -26,6 +26,8 @@
 
 ### 시퀀스 다이어그램
 
+<img width="300" alt="image" src="https://github.com/Integrated-Discount-System/Integrated-Discount-System/assets/60764632/603e1cff-c4f3-4d54-b148-9777a6697529">
+
 안녕하세요. IDS 입니다. 기능을 선택해주세요.
 
 1. 이벤트 보기
@@ -57,6 +59,12 @@
 4. 현재 멤버십 + 어떤 사은품 받을 수 있는지 보여주기 (Silver, Gold, Vip)
 
 q. 종료
+
+---
+
+### Usecase Diagram
+
+<img width="600" alt="image" src="https://github.com/Integrated-Discount-System/Integrated-Discount-System/assets/60764632/e8fc03fd-51ad-4589-b9d8-f0a420f780e4">
 
 ---
 
