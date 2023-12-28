@@ -73,6 +73,8 @@ q. 종료
 
 통합 할인 시스템 기능을 구현해야한다. 통합 할인 시스템은 아래와 같이 정의한다.
 
+<img width="1400" alt="image" src="https://github.com/Integrated-Discount-System/Integrated-Discount-System/assets/60764632/a8710267-805c-419b-93af-a3bb2fa56b2b">
+
 - 기본 요금은 아래와 같다.
 
 ```
