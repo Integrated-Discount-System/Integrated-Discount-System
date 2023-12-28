@@ -28,7 +28,8 @@
 
 <img width="300" alt="image" src="https://github.com/Integrated-Discount-System/Integrated-Discount-System/assets/60764632/603e1cff-c4f3-4d54-b148-9777a6697529">
 
-안녕하세요. IDS 입니다. 기능을 선택해주세요.
+
+**안녕하세요. IDS 입니다. 기능을 선택해주세요.**
 
 1. 이벤트 보기
 
